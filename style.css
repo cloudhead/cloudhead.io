@@ -24,7 +24,7 @@ body > header {
 
 footer {
   text-align: right;
-  position: absolute;
+  position: fixed;
   bottom: 10px;
   right: 10px;
   font-size: 11px;
