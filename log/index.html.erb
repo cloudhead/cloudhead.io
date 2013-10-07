@@ -75,7 +75,7 @@
       </header>
       <ul>
         <% articles.each do |a| %>
-          <li><a href="<%= a.permalink %>"><%= a.title %></a><span class="date"><%= a.date %></li>
+          <li><a href="<%= a.path %>"><%= a.title %></a><span class="date"><%= a.date %></li>
         <% end %>
       </ul>
     </section>
