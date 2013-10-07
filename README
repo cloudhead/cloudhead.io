@@ -1,3 +1,5 @@
 This is my website. There are many like it, but this one is mine.
 
+The site is built & deployed with a script based on <http://github.com/cloudhead/s3web>
+
 All content is (C) 2010-2013 Alexis Sellier
