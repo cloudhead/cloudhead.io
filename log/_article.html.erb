@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>cloudhead.io</title>
+    <style>
+      * { margin: 0; padding: 0 }
+
+      body > header {
+        font-family: courier, monospace;
+        float: right;
+        padding: 10px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      footer {
+        font-family: courier, monospace;
+        text-align: center;
+        margin: 0 auto;
+        padding: 30px;
+        font-size: 11px;
+      }
+      footer p {
+        margin: 5px 0;
+      }
+      ul li {
+        list-style-type: none;
+      }
+      a {
+        text-decoration: none;
+      }
+
+      .post {
+        padding-top: 90px;
+      }
+      .post .body, .post header {
+        font-family: "Times New Roman", Times, serif;
+        width: 640px;
+        margin: 0 auto;
+        text-align: left;
+      }
+      .post .body, .post code, .post h2, footer a {
+        font-size: 17px;
+        line-height: 1.3em;
+      }
+      .post .date {
+        display: block;
+        padding-top: 10px;
+      }
+      .post .date, .post blockquote {
+        color: #777;
+      }
+      .post blockquote {
+        font-style: italic;
+      }
+      .post pre {
+        margin-left: 10px;
+      }
+      .post code {
+        font-family: courier, monospace;
+      }
+      .post p {
+        margin: 1.5em 0;
+      }
+      .post h1 {
+        font-size: 19px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1><a href="/">cloudhead.io</a></h1>
+    </header>
+    <article class="post">
+      <header>
+        <h1><%= title %></h1>
+        <span class="date"><%= date %></span>
+      </header>
+      <section class="body">
+        <%= body %>
+      </section>
+    </article>
+    <footer>
+      <a href="http://twitter.com/cloudhead">@cloudhead</a></br />
+      <a href="mailto:hello@cloudhead.io">comments@cloudhead.io</a>
+      <p>&copy; 2010-2013 Alexis Sellier</p>
+    </footer>
+  </body>
+</html>
