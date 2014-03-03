@@ -6,10 +6,12 @@
       * { margin: 0; padding: 0 }
 
       body {
-        font-size: 17px;
+        font-family: "Times New Roman", Times, serif;
+      }
+      body > header, body > footer {
+        font-family: courier, monospace;
       }
       body > header {
-        font-family: courier, monospace;
         float: right;
         padding: 10px;
       }
@@ -17,13 +19,13 @@
         font-size: 20px;
       }
       footer {
-        font-family: courier, monospace;
         text-align: center;
         margin: 0 auto;
         padding: 30px;
+        font-size: 21px;
       }
       footer .copy {
-        font-size: 11px;
+        font-size: 13px;
       }
       footer p {
         margin: 5px 0;
@@ -42,19 +44,23 @@
         margin-top: 0;
       }
       .post .body, .post header {
-        font-family: "Times New Roman", Times, serif;
-        width: 640px;
+        width: 700px;
         margin: 0 auto;
         text-align: left;
       }
+      .post header {
+        margin-bottom: 1.5em;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #ccc;
+      }
       .post .body, .post code, .post h2, footer a {
-        font-size: 17px;
-        line-height: 1.3em;
+        font-size: 21px;
+        line-height: 1.4em;
       }
       .post .date {
         display: block;
-        padding: 10px 0;
-        font-size: 11px;
+        padding-top: 10px;
+        font-size: 15px;
       }
       .post .date, .post blockquote {
         color: #777;
@@ -72,13 +78,13 @@
         margin: 1.5em 0;
       }
       .post h1 {
-        font-size: 19px;
+        font-size: 1.8em;
       }
     </style>
   </head>
   <body>
     <header>
-      <h1><a href="/">cloudhead.io</a></h1>
+      <h1><a href="/">cloudhead.io</a>/<a href="/log">log</a></h1>
     </header>
     <article class="post">
       <header>
