@@ -1,0 +1,27 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: courier, monospace;
+}
+
+body > header {
+  float: right;
+}
+
+nav {
+	font-family: courier, monospace;
+	font-weight: bold;
+	padding: 10px;
+	font-size: 20px;
+}
+
+ul li {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+}

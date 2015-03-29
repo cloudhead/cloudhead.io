@@ -5,7 +5,7 @@
 
 body {
   font-family: courier, monospace;
-  background-image: url(bg.png);
+  background-image: url(/images/bg.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: bottom center;
