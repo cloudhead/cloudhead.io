@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-  font-size: 27px;
+  font-size: 24px;
 }
 
 body > header {
@@ -42,7 +42,7 @@ ul, li {
 
 li {
   margin: 5px 0;
-  font-size: 24px;
+  font-size: 20px;
   display: block;
 }
 
