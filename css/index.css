@@ -1,0 +1,44 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: url(/images/bg.png);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: bottom center;
+	padding: 10px;
+}
+
+h1 {
+	font-size: 22px;
+	background-color: white;
+}
+
+body > header {
+	display: inline;
+	text-align: right;
+	float: right;
+}
+
+ul, li {
+	display: inline-block;
+	list-style-type: none;
+	background-color: white;
+}
+
+li {
+	margin: 5px 0;
+	font-size: 18px;
+	display: block;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover:before {
+	content: "> ";
+}
+
