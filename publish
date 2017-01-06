@@ -1,0 +1,71 @@
+#!/usr/bin/env ruby
+
+require 'aws-sdk-v1'
+require 'digest/md5'
+
+SITE = AWS::S3.new(region: ENV['AWS_REGION'] || 'eu-west-1')
+              .buckets[File.basename(Dir.pwd)]
+
+USAGE = <<EOF
+usage: #{$0} file...
+
+the following environment vars will be used:
+
+  AWS_REGION
+  AWS_ACCESS_KEY_ID
+  AWS_SECRET_ACCESS_KEY
+
+EOF
+
+def upload(files=["."])
+  files = files.map do |f|
+    File.directory?(f) ? traverse(Dir.new(f)) : f
+  end.flatten
+
+  files.each do |f|
+    obj = SITE.objects[f]
+    local_md5 = md5sum(f).chomp
+    remote_md5 = obj.etag.tr('"', '') if obj.exists?
+
+    print "#{f}.. "
+
+    if local_md5.to_s != remote_md5.to_s
+      obj.write(Pathname.new(f))
+      obj.acl = :public_read
+      puts "ok"
+    else
+      puts "skipping"
+    end
+  end
+end
+
+def md5sum(file_name)
+  Digest::MD5.hexdigest(File.read(file_name))
+end
+
+def traverse(dir)
+  list = []
+  dir.each do |entry|
+    unless [".", "..", ".git"].include?(entry)
+      path = File.join(dir.path, entry)
+      if File.directory?(path)
+        list += traverse(Dir.new(path))
+      else
+        list << path
+      end
+    end
+  end
+  list
+end
+
+if ARGV[0] == "-h"
+  puts USAGE
+  exit 0
+end
+
+begin
+  upload(ARGV)
+rescue Exception => e
+  $stderr.puts "error: #{e.message}"
+  exit 1
+end
