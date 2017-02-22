@@ -1,0 +1,12 @@
+
+* Principia Discordia <http://www.principiadiscordia.com/book/1.php>
+
+  Essential reading if you want to understand life.
+
+* Learn VimScript the Hard Way <http://learnvimscriptthehardway.stevelosh.com/>
+
+  A pretty great vim reference.
+
+* Vim script cheatsheet <http://ricostacruz.com/cheatsheets/vimscript.html>
+
+  A beautiful VimL cheatsheet.
