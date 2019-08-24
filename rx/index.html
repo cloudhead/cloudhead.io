@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>rx &mdash; a minimalist and extensible pixel editor</title>
+    <meta charset="UTF-8">
+    <style>
+      body {
+        padding: 90px 0 90px 0;
+        font-size: 20px;
+        font-family: monospace;
+        line-height: 1.4em;
+        margin: 0 auto;
+      }
+
+      h2 {
+        font-size: 1em;
+        text-align: center;
+      }
+
+      h3 {
+        font-size: 0.8em;
+        text-align: center;
+      }
+
+      .cli {
+        text-align: center;
+      }
+
+      code {
+        color: white;
+        background-color: black;
+        font-size: 0.8em;
+        padding: 6px 12px;
+      }
+
+      section > header {
+        margin-bottom: 10px;
+      }
+
+      section > header > h2 {
+        font-size: 20px;
+      }
+
+      body > section {
+        margin: 60px auto;
+        width: 960px;
+      }
+
+      body > img {
+        display: block;
+        margin: 15px auto;
+      }
+
+      li {
+        list-style-type: none;
+      }
+
+      .title {
+        text-align: center;
+        width: auto;
+        margin: 0;
+        padding: 0;
+      }
+
+      .subtitle {
+        text-align: center;
+        margin: 0;
+      }
+
+      .screenshot {
+        margin: 0 auto;
+        text-align: center;
+        width: 1180px;
+        overflow: hidden;
+      }
+
+      .grey {
+        color: grey;
+      }
+
+      footer {
+        margin-top: 90px;
+        text-align: center;
+        font-size: 0.75em;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+    </header>
+    <section>
+      <pre class="title">
+██╗████╗██╗██╗
+╚███╔██║╚███╔╝
+ ██╔╝══╝██╔██╗
+ ██║   ██╔╝ ██╗
+ ╚═╝   ╚═╝  ╚═╝
+      </pre>
+      <p class="subtitle">a modern and extensible pixel editor implemented in rust.</p>
+    </section>
+    <div class="screenshot">
+      <img src="overview.png"/>
+    </div>
+    <section>
+      <p><em>rx</em> is an extensible, modern and minimalist <strong>pixel editor</strong>
+      implemented in rust[0]. It's designed to have as little UI as possible, and instead
+      takes inspiration from vi's[1] modal nature and command mode.</p>
+
+      <p>Compared to other pixel editors, rx aims to be smaller, yet more configurable
+      and extendable. `rx` takes a different approach when it comes to animation
+      as well, which is done with *strips*.</p>
+
+      [0]: <a href="https://rust-lang.org">https://rust-lang.org</a><br/>
+      [1]: <a href="https://en.wikipedia.org/wiki/Vi">https://en.wikipedia.org/wiki/Vi</a>
+    </section>
+
+    <section>
+      <h2>GOALS</h2>
+      <ul>
+        <li>* Minimal UI. Clean aesthetics.</li>
+        <li>* Everything that should be controlled by the keyboard, is.</li>
+        <li>* Extensible and scriptable with a simple command-based language.</li>
+        <li>* Familiar to anyone with vi(m) knowledge.</li>
+        <li>* Snappy. All commands run in &lt; 16ms.</li>
+        <li>* Optimized for advanced users. No hand-holding. vi-like philosophy.</li>
+        <li>* Small, hackable codebase. At most 10 KLOC.</li>
+        <li>* First-class Linux support.
+      </ul>
+    </section>
+
+    <section>
+      <h2>FEATURES</h2>
+      <ul>
+        <li>* Built-in sprite animation support, with live preview.</li>
+        <li>* Work with multiple files simultaneously.</li>
+        <li>* Extensible command system.</li>
+        <li>* Text-based configuration.</li>
+        <li>* HiDPI display support.</li>
+        <li>* Undo/redo support.</li>
+        <li>* PNG support.</li>
+        <li>* <em class="grey">Coming soon: Layers.</em></li>
+        <li>* <em class="grey">Coming soon: Visual mode.</em></li>
+        <li>* <em class="grey">Coming soon: Workspaces.</em></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>DOWNLOAD</h2>
+      You'll need <strong>cargo</strong> and <strong>rust</strong> to install <em>rx</em>. For more
+      detailed instructions, see the <a href="https://github.com/cloudhead/rx/blob/master/README">README</a>.
+
+      <h3>Linux</h3>
+      <div class="cli"><code>$ cargo install --git https://github.com/cloudhead/rx --locked --features vulkan</code></div>
+      <h3>macOS</h3>
+      <div class="cli"><code>$ cargo install --git https://github.com/cloudhead/rx --locked --features metal</code></div>
+      <h3>Windows (untested)</h3>
+      <div class="cli"><code>$ cargo install --git https://github.com/cloudhead/rx --locked --features dx12</code></div>
+    </section>
+
+    <section>
+      <h2>CONTRIBUTE</h2>
+      The source code is available at <a
+        href="https://github.com/cloudhead/rx">https://github.com/cloudhead/rx</a>.
+      <em>rx</em> is <em>free software</em>.
+    </section>
+
+    <footer>
+      &copy; 2019 Alexis Sellier
+    </footer>
+  </body>
+</html>
