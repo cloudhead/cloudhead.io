@@ -2,9 +2,17 @@
 <html lang="en">
   <head>
     <title>rx &mdash; a minimalist and extensible pixel editor</title>
-    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
       body {
+        background-color: black;
+        color: #ddd;
         padding: 90px 0 90px 0;
         font-size: 20px;
         font-family: monospace;
@@ -27,10 +35,11 @@
       }
 
       code {
+        line-height: 0.8em;
         color: white;
-        background-color: black;
         font-size: 0.8em;
         padding: 6px 12px;
+        border: 1px solid #ddd;
       }
 
       section > header {
@@ -46,13 +55,18 @@
         width: 960px;
       }
 
-      body > img {
+      img {
         display: block;
         margin: 15px auto;
+        border: 1px solid #ddd;
       }
 
       li {
         list-style-type: none;
+      }
+
+      ::selection {
+        background: #999999;
       }
 
       .title {
@@ -74,8 +88,7 @@
       .screenshot {
         margin: 0 auto;
         text-align: center;
-        width: 1180px;
-        overflow: hidden;
+        width: 100%;
       }
 
       .grey {
@@ -88,8 +101,22 @@
         font-size: 0.75em;
       }
 
+      a {
+        color: #ffff66;
+      }
       a:hover {
-        text-decoration: underline;
+        text-decoration: none;
+      }
+
+      @media only screen and (max-device-width: 1280px) {
+        body > section {
+          padding-left: 30px !important;
+          padding-right: 30px !important;
+          width: 100% !important;
+        }
+        .screenshot > img {
+          width: 100%;
+        }
       }
     </style>
   </head>
@@ -108,9 +135,9 @@
       <br/>
       <p class="subtitle">a modern and extensible pixel editor implemented in rust.</p>
     </section>
-    <div class="screenshot">
+    <section class="screenshot">
       <img src="overview.png"/>
-    </div>
+    </section>
     <section>
       <p><em>rx</em> is an extensible, modern and minimalist <strong>pixel editor</strong>
       implemented in rust[0]. It's designed to have as little UI as possible, and instead
@@ -120,8 +147,8 @@
       and extendable. `rx` takes a different approach when it comes to animation
       as well, which is done with *strips*.</p>
 
-      [0]: <a href="https://rust-lang.org">https://rust-lang.org</a><br/>
-      [1]: <a href="https://en.wikipedia.org/wiki/Vi">https://en.wikipedia.org/wiki/Vi</a>
+      <small>[0]: <a href="https://rust-lang.org">https://rust-lang.org</a></small><br/>
+      <small>[1]: <a href="https://en.wikipedia.org/wiki/Vi">https://en.wikipedia.org/wiki/Vi</a></small>
     </section>
 
     <section>
@@ -172,7 +199,7 @@
     <section>
       <h2>CONTRIBUTE</h2>
       The source code is available at <a
-        href="https://github.com/cloudhead/rx">https://github.com/cloudhead/rx</a>.
+        href="https://github.com/cloudhead/rx">github.com/cloudhead/rx</a>.
       <em>rx</em> is <em>free software</em>.
     </section>
 
