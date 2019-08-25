@@ -2,6 +2,7 @@
 
 require 'aws-sdk-v1'
 require 'digest/md5'
+require 'rack/mime'
 
 SITE = AWS::S3.new(region: ENV['AWS_REGION'] || 'eu-west-1')
               .buckets[File.basename(Dir.pwd)]
@@ -30,8 +31,10 @@ def upload(files=["."])
     print "#{f}.. "
 
     if local_md5.to_s != remote_md5.to_s
-      obj.write(Pathname.new(f))
+      obj.write(Pathname.new(f),
+                :content_type => Rack::Mime::MIME_TYPES[File.extname(f)])
       obj.acl = :public_read
+
       puts "ok"
     else
       puts "skipping"
