@@ -34,12 +34,23 @@
         text-align: center;
       }
 
-      code {
+      strong {
+        font-weight: bold;
+      }
+
+      code.block {
         line-height: 0.8em;
-        color: white;
-        font-size: 0.8em;
         padding: 6px 12px;
+        font-size: 0.8em;
+        font-style: normal;
         border: 1px solid #ddd;
+        background-color: #000;
+        color: white;
+      }
+
+      code {
+        color: #aaa;
+        font-style: italic;
       }
 
       section > header {
@@ -131,7 +142,7 @@
  ██║   ██╔╝ ██╗
  ╚═╝   ╚═╝  ╚═╝
       </pre>
-      <p class="version">v0.1.0 <em>alpha</em></p>
+      <p class="version">v0.2.0 <em>alpha</em></p>
       <br/>
       <p class="subtitle">a modern and extensible pixel editor implemented in rust.</p>
     </section>
@@ -154,14 +165,15 @@
     <section>
       <h2>GOALS</h2>
       <ul>
-        <li>* Minimal UI. Clean aesthetics.</li>
+        <li>* Minimal UI. Clean aesthetics. No clutter.</li>
         <li>* Everything that should be controlled by the keyboard, is.</li>
         <li>* Extensible and scriptable with a simple command-based language.</li>
         <li>* Familiar to anyone with vi(m) knowledge.</li>
         <li>* Snappy. All commands run in &lt; 16ms.</li>
         <li>* Optimized for advanced users. vi-like philosophy.</li>
         <li>* Small, hackable codebase. At most 10 KLOC.</li>
-        <li>* First-class Linux support.
+        <li>* First-class Linux support.</li>
+        <li>* CPU &amp; memory efficient.</li>
       </ul>
     </section>
 
@@ -176,6 +188,10 @@
         <li>* Undo/redo support.</li>
         <li>* Color palette support.</li>
         <li>* PNG support.</li>
+        <li>* Animated GIF support.</li>
+        <li>* Multi-brush / synchronous editing.</li>
+        <li>* Symmetry brush mode.</li>
+        <li>* Brush filtering a.k.a "pixel-perfect" mode.</li>
         <li>* <em class="grey">Coming soon: Layers.</em></li>
         <li>* <em class="grey">Coming soon: Visual mode.</em></li>
         <li>* <em class="grey">Coming soon: Workspaces.</em></li>
@@ -185,19 +201,41 @@
     <section>
       <h2>DOWNLOAD</h2>
       <center><p><em><small>Disclaimer: this is alpha software, use at your own risk!</small></em></p></center>
-      You'll need <strong>cargo</strong> and <strong>rust</strong> to install <em>rx</em>. For more
+      <p>On Linux, the simplest way to get <em>rx</em> is to download the <em>AppImage</em>
+      from here:</p>
+      <center><a href="https://github.com/cloudhead/rx/releases/download/v0.2.0/rx-0.2.0-x86_64-unknown-linux-gnu.AppImage">rx-0.2.0-x86_64-unknown-linux-gnu.AppImage</a></center>
+      <p>Then make it executable with eg. <code>chmod +x</code>, rename it to
+      <code>rx</code> and move it somewhere in your <code>PATH</code>.</p>
+      <p>For macOS and Windows, see the following section.</p>
+    </section>
+
+    <section>
+      <h2>BUILD FROM SOURCE</h2>
+      You'll need <strong>cargo</strong> and <strong>rust</strong> to build <em>rx</em> from source. For more
       detailed instructions, see the <a href="https://github.com/cloudhead/rx/blob/master/README">README</a>.
 
       <h3>Linux</h3>
-      <div class="cli"><code>$ cargo install --git https://github.com/cloudhead/rx --tag v0.1.0 --locked --features vulkan</code></div>
+      <div class="cli"><code class="block">$ cargo install --git https://github.com/cloudhead/rx --tag v0.2.0 --locked --features vulkan</code></div>
       <h3>macOS</h3>
-      <div class="cli"><code>$ cargo install --git https://github.com/cloudhead/rx --tag v0.1.0 --locked --features metal</code></div>
-      <h3>Windows (untested)</h3>
-      <div class="cli"><code>$ cargo install --git https://github.com/cloudhead/rx --tag v0.1.0 --locked --features dx12</code></div>
+      <div class="cli"><code class="block">$ cargo install --git https://github.com/cloudhead/rx --tag v0.2.0 --locked --features metal</code></div>
+      <h3>Windows</h3>
+      <div class="cli"><code class="block">$ cargo install --git https://github.com/cloudhead/rx --tag v0.2.0 --locked --features vulkan</code></div>
       <br/>
-      <p>You'll then have to copy <a href="palettes/sweetie16.palette">sweetie16.palette</a>,
-      the default palette to <strong>~/.config/rx/palettes</strong>.
-      Other palettes are also available <a href="palettes/">here</a>, and you can create your own.
+
+      <p>The default installed palette is <a href="palettes/sweetie16.palette">sweetie16.palette</a>.
+      Other palettes are also available <a href="palettes/">here</a>, and you can create your own.</p>
+    </section>
+
+    <section>
+      <h2>CONFIGURATION</h2>
+      <p>Configuring <em>rx</em> involves editing the <em>init.rx</em>
+      script, which is found in a platform-dependent location. On Linux, this
+      is in the XDG config directory, eg. <em>~/.config/rx/init.rx</em>, while on
+      macOS this is in the <em>~/Library/Preferences</em> folder.
+      written.</p>
+
+      <p>To get the exact location of the config directory, enter <em>:echo config/dir</em>
+      from inside <em>rx</em>.</p>
     </section>
 
     <section>
@@ -212,15 +250,34 @@
       <p>If you find this project useful and want to support its continued maintenance,
       consider sending ₿ (Bitcoin) to the following address with a memo indicating your
       name, to be added to the contributors list:</p>
-      <center><p><code>1MpF7p9A8LJabZn7ehHpGbLcN5PCXRdGqm</code></p></center>
+      <center><p><code class="block">1MpF7p9A8LJabZn7ehHpGbLcN5PCXRdGqm</code></p></center>
+    </section>
+
+    <section>
+      <h2>TROUBLESHOOTING</h2>
+
+      <p>If something ain't working like it's supposed to, there are various things you can
+      do to debug the problem:</p>
+
+      <ol>
+        <li>1. Run <em>rx</em> with verbose logging, by using the <code>-v</code> command-line flag.
+        This will log errors from the underlying libraries that are usually
+        suppressed.  You can increase the verbosity further by using <code>-vv</code>.</li>
+        <li>2. Try the <em>winit</em> backend, by building <em>rx</em> with eg. <code>--features winit,vulkan</code>.</li>
+      </ol>
+
+      Otherwise, see the following BUGS section.
     </section>
 
     <section>
       <h2>BUGS</h2>
-      If you encounter a bug, please open an issue on the <a href="https://github.com/cloudhead/rx/issues">tracker</a>
-      or send an email to rx@cloudhead.io.
+      <p>If you encounter a bug, please open an issue on the <a href="https://github.com/cloudhead/rx/issues">tracker</a>
+      or send an email to rx@cloudhead.io.</p>
     </section>
 
+    <section>
+      <h2>LICENSE</h2>
+      <p>This software is licensed under the GPL.</p>
     <footer>
       &copy; 2019 Alexis Sellier
     </footer>
