@@ -15,9 +15,12 @@
         color: #ddd;
         padding: 90px 0 90px 0;
         font-size: 20px;
-        font-family: monospace;
         line-height: 1.4em;
         margin: 0 auto;
+      }
+
+      body, code {
+        font-family: Inconsolata, Consolas, monospace;
       }
 
       h2 {
@@ -68,7 +71,7 @@
 
       img {
         display: block;
-        margin: 15px auto;
+        margin: 0 auto;
         border: 1px solid #ddd;
       }
 
@@ -114,9 +117,10 @@
 
       a {
         color: #ffff66;
+        text-decoration: none;
       }
       a:hover {
-        text-decoration: none;
+        text-decoration: underline;
       }
 
       @media only screen and (max-device-width: 1280px) {
@@ -144,15 +148,22 @@
       </pre>
       <p class="version">v0.2.0 <em>alpha</em></p>
       <br/>
-      <p class="subtitle">a modern and extensible pixel editor implemented in rust.</p>
+      <p class="subtitle">a modern and extensible pixel editor implemented in rust</p>
+      <br/>
+      <center>
+        <small>
+          <a href="#download">Download for GNU/Linux</a>
+        </small>
+      </center>
     </section>
     <section class="screenshot">
       <img src="overview.png"/>
     </section>
     <section>
-      <p><em>rx</em> is an extensible, modern and minimalist <strong>pixel editor</strong>
-      implemented in rust[0]. It's designed to have as little UI as possible, and instead
-      takes inspiration from vi's[1] modal nature and command mode.</p>
+      <p><em>rx</em> is an extensible, modern and minimalist <strong>pixel
+        editor</strong> and <strong>animator</strong> implemented in rust[0].
+      It's designed to have as little UI as possible, and instead takes
+      inspiration from vi's[1] modal nature and command mode.</p>
 
       <p>Compared to other pixel editors, rx aims to be smaller yet more configurable
       and extendable. `rx` takes a different approach when it comes to animation
@@ -198,6 +209,19 @@
       </ul>
     </section>
 
+    <section>
+      <h2>REQUIREMENTS</h2>
+      <h3>Linux</h3>
+      On Linux, <em>Vulkan</em> support is required. The drivers can be installed for example with
+      <code>apt install mesa-vulkan-drivers</code> on debian-based systems.
+      <h3>macOS</h3>
+      On macOS, <em>Metal</em> support is required. This usually requires installing <em>Xcode</em>
+      and the <em>Xcode Command Line Tools</em>.
+      <h3>Windows</h3>
+      On Windows, <em>Vulkan</em> support is required.
+    </section>
+
+    <a id="download"></a>
     <section>
       <h2>DOWNLOAD</h2>
       <center><p><em><small>Disclaimer: this is alpha software, use at your own risk!</small></em></p></center>
