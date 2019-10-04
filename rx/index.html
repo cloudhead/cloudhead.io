@@ -17,6 +17,7 @@
         font-size: 20px;
         line-height: 1.4em;
         margin: 0 auto;
+        padding: 0 15px;
       }
 
       body, code {
@@ -42,13 +43,14 @@
       }
 
       code.block {
-        line-height: 0.8em;
+        line-height: 1em;
         padding: 6px 12px;
         font-size: 0.8em;
         font-style: normal;
         border: 1px solid #ddd;
         background-color: #000;
         color: white;
+        display: inline-block;
       }
 
       code {
@@ -70,7 +72,7 @@
 
       body > section {
         margin: 60px auto;
-        width: 960px;
+        max-width: 640px;
       }
 
       img {
@@ -87,7 +89,7 @@
       }
 
       li {
-        list-style-type: none;
+        list-style-position: outside;
       }
 
       ::selection {
@@ -111,8 +113,6 @@
       }
 
       .screenshot {
-        width: 603px;
-        height: 459px;
         margin: 0 auto;
         text-align: center;
       }
@@ -136,13 +136,23 @@
       }
 
       @media only screen and (max-device-width: 1280px) {
+        body {
+          font-size: 15px;
+        }
         body > section {
-          padding-left: 30px !important;
-          padding-right: 30px !important;
           width: 100% !important;
+          margin: 30px auto !important;
+        }
+        ul, ol {
+          padding-left: 15px;
+          margin-left: 15px;
+        }
+        pre.block {
+          font-size: 0.7em;
         }
         .screenshot > img {
           width: 100%;
+          height: auto;
         }
       }
     </style>
@@ -189,36 +199,36 @@
     <section>
       <h2>GOALS</h2>
       <ul>
-        <li>* Minimal UI. Clean aesthetics. No clutter.</li>
-        <li>* Everything that should be controlled by the keyboard, is.</li>
-        <li>* Extensible and scriptable with a simple command-based language.</li>
-        <li>* Familiar to anyone with vi(m) knowledge.</li>
-        <li>* Snappy. All commands run in &lt; 16ms.</li>
-        <li>* Optimized for advanced users. vi-like philosophy.</li>
-        <li>* Small, hackable codebase. At most 10 KLOC.</li>
-        <li>* First-class Linux support.</li>
-        <li>* CPU &amp; memory efficient.</li>
+        <li>Minimal UI. Clean aesthetics. No clutter.</li>
+        <li>Everything that should be controlled by the keyboard, is.</li>
+        <li>Extensible and scriptable with a simple command-based language.</li>
+        <li>Familiar to anyone with vi(m) knowledge.</li>
+        <li>Snappy. All commands run in &lt; 16ms.</li>
+        <li>Optimized for advanced users. vi-like philosophy.</li>
+        <li>Small, hackable codebase. At most 10 KLOC.</li>
+        <li>First-class Linux support.</li>
+        <li>CPU &amp; memory efficient.</li>
       </ul>
     </section>
 
     <section>
       <h2>FEATURES</h2>
       <ul>
-        <li>* Built-in sprite animation support, with live preview.</li>
-        <li>* Work with multiple files simultaneously.</li>
-        <li>* Extensible command system.</li>
-        <li>* Text-based configuration.</li>
-        <li>* HiDPI display support.</li>
-        <li>* Undo/redo support.</li>
-        <li>* Color palette support.</li>
-        <li>* PNG support.</li>
-        <li>* Animated GIF support.</li>
-        <li>* Multi-brush / synchronous editing.</li>
-        <li>* Symmetry brush mode.</li>
-        <li>* Brush filtering a.k.a "pixel-perfect" mode.</li>
-        <li>* <em class="grey">Coming soon: Layers.</em></li>
-        <li>* <em class="grey">Coming soon: Visual mode.</em></li>
-        <li>* <em class="grey">Coming soon: Workspaces.</em></li>
+        <li>Built-in sprite animation support, with live preview.</li>
+        <li>Work with multiple files simultaneously.</li>
+        <li>Extensible command system.</li>
+        <li>Text-based configuration.</li>
+        <li>HiDPI display support.</li>
+        <li>Undo/redo support.</li>
+        <li>Color palette support.</li>
+        <li>PNG support.</li>
+        <li>Animated GIF support.</li>
+        <li>Multi-brush / synchronous editing.</li>
+        <li>Symmetry brush mode.</li>
+        <li>Brush filtering a.k.a "pixel-perfect" mode.</li>
+        <li><em class="grey">Coming soon: Layers.</em></li>
+        <li><em class="grey">Coming soon: Visual mode.</em></li>
+        <li><em class="grey">Coming soon: Workspaces.</em></li>
       </ul>
     </section>
 
@@ -272,14 +282,14 @@
 
       <p>Common commands:</p>
 
-      <pre>
-      :help                    Display help
-      :e &lt;path..&gt;              Edit path(s)
-      :w                       Write/save view
-      :q                       Quit view
-      :slice &lt;n&gt;               Slice view into &lt;n&gt; frames
-      :source &lt;path&gt;           Source an rx script (eg. a palette)
-      :f/resize &lt;w&gt; &lt;h&gt;        Resize frames
+      <pre class="block">
+:help                    Display help
+:e &lt;path..&gt;              Edit path(s)
+:w                       Write/save view
+:q                       Quit view
+:slice &lt;n&gt;               Slice view into &lt;n&gt; frames
+:source &lt;path&gt;           Source an rx script (eg. a palette)
+:f/resize &lt;w&gt; &lt;h&gt;        Resize frames
       </pre>
     </section>
 
@@ -317,10 +327,10 @@
       do to debug the problem:</p>
 
       <ol>
-        <li>1. Run <em>rx</em> with verbose logging, by using the <code>-v</code> command-line flag.
+        <li>Run <em>rx</em> with verbose logging, by using the <code>-v</code> command-line flag.
         This will log errors from the underlying libraries that are usually
         suppressed.  You can increase the verbosity further by using <code>-vv</code>.</li>
-        <li>2. Try the <em>winit</em> backend, by building <em>rx</em> with eg. <code>--features winit,vulkan</code>.</li>
+        <li>Try the <em>winit</em> backend, by building <em>rx</em> with eg. <code>--features winit,vulkan</code>.</li>
       </ol>
 
       Otherwise, see the following BUGS section.
