@@ -77,6 +77,13 @@
         display: block;
         margin: 0 auto;
         border: 1px solid #ddd;
+        image-rendering: optimizeSpeed;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -o-crisp-edges;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: pixelated;
+        image-rendering: optimize-contrast;
+        -ms-interpolation-mode: nearest-neighbor;
       }
 
       li {
@@ -104,9 +111,10 @@
       }
 
       .screenshot {
+        width: 603px;
+        height: 459px;
         margin: 0 auto;
         text-align: center;
-        width: 100%;
       }
 
       .grey {
@@ -156,12 +164,13 @@
       <br/>
       <center>
         <small>
-          <a href="#download">Download for GNU/Linux</a>
+          <a href="#download">Download for GNU/Linux</a><br/>
+          <a href="https://github.com/cloudhead/rx">GitHub</a>
         </small>
       </center>
     </section>
     <section class="screenshot">
-      <img src="overview.png"/>
+      <img src="rx.gif"/>
     </section>
     <section>
       <p><em>rx</em> is an extensible, modern and minimalist <strong>pixel
