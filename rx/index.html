@@ -261,12 +261,7 @@
       You'll need <strong>cargo</strong> and <strong>rust</strong> to build <em>rx</em> from source. For more
       detailed instructions, see the <a href="https://github.com/cloudhead/rx/blob/master/README">README</a>.
 
-      <h3>Linux</h3>
-      <div class="cli"><code class="block">$ cargo install --git https://github.com/cloudhead/rx --tag v0.2.0 --locked --features vulkan</code></div>
-      <h3>macOS</h3>
-      <div class="cli"><code class="block">$ cargo install --git https://github.com/cloudhead/rx --tag v0.2.0 --locked --features metal</code></div>
-      <h3>Windows</h3>
-      <div class="cli"><code class="block">$ cargo install --git https://github.com/cloudhead/rx --tag v0.2.0 --locked --features vulkan</code></div>
+      <div class="cli"><code class="block">$ cargo install --git https://github.com/cloudhead/rx --tag v0.2.0 --locked</code></div>
       <br/>
 
       <p>The default installed palette is <a href="palettes/sweetie16.palette">sweetie16.palette</a>.
@@ -330,7 +325,7 @@
         <li>Run <em>rx</em> with verbose logging, by using the <code>-v</code> command-line flag.
         This will log errors from the underlying libraries that are usually
         suppressed.  You can increase the verbosity further by using <code>-vv</code>.</li>
-        <li>Try the <em>winit</em> backend, by building <em>rx</em> with eg. <code>--features winit,vulkan</code>.</li>
+        <li>Try the <em>winit</em> backend, by building <em>rx</em> with eg. <code>--features winit</code>.</li>
       </ol>
 
       Otherwise, see the following BUGS section.
