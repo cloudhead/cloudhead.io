@@ -14,7 +14,7 @@ body > header {
 }
 
 nav {
-	font-weight: bold;
+	font-weight: normal;
 	padding: 10px;
 	font-size: 20px;
 }
