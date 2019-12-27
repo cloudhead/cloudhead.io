@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
-      * {
-        box-sizing: border-box;
-      }
-
       body {
         background-color: black;
         color: #ddd;
@@ -17,336 +13,33 @@
         font-size: 18px;
         line-height: 1.4em;
         margin: 0 auto;
-        padding: 0 15px;
+        text-align: center;
       }
 
       body, code {
-        font-family: Inconsolata, Consolas, monospace;
-      }
-
-      h2 {
-        font-size: 1em;
-        text-align: center;
-      }
-
-      h3 {
-        font-size: 0.8em;
-        text-align: center;
-      }
-
-      .cli {
-        text-align: center;
-      }
-
-      strong {
-        font-weight: bold;
-      }
-
-      code.block {
-        line-height: 1em;
-        padding: 6px 12px;
-        font-size: 0.8em;
-        font-style: normal;
-        border: 1px solid #ddd;
-        background-color: #000;
-        color: white;
-        display: inline-block;
-      }
-
-      code {
-        color: #aaa;
-      }
-
-      pre {
-        font-size: 0.8em;
-      }
-
-      section > header {
-        margin-bottom: 10px;
-      }
-
-      section > header > h2 {
-        font-size: 20px;
-      }
-
-      body > section {
-        margin: 60px auto;
-        max-width: 640px;
-      }
-
-      img {
-        display: block;
-        margin: 0 auto;
-        border: 1px solid #ddd;
-        image-rendering: optimizeSpeed;
-        image-rendering: -moz-crisp-edges;
-        image-rendering: -o-crisp-edges;
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: pixelated;
-        image-rendering: optimize-contrast;
-        -ms-interpolation-mode: nearest-neighbor;
-      }
-
-      h1 {
-        font-size: 2em;
-        font-family: "Fira Mono", "Fira Code", monospace;
-        text-align: center;
-        font-weight: normal;
-      }
-
-      li {
-        list-style-position: outside;
-      }
-
-      ::selection {
-        background: #999999;
-      }
-
-      .title {
-        text-align: center;
-        width: auto;
-        margin: 0;
-        padding: 0;
-        line-height: 1.1em;
-      }
-
-      .logo {
-        border: none;
-      }
-
-      .subtitle, .version {
-        text-align: center;
-        margin: 0;
-      }
-
-      .version {
-        font-size: 0.8em;
-      }
-
-      .screenshot {
-        margin: 0 auto;
-        text-align: center;
-      }
-
-      .grey {
-        color: grey;
-      }
-
-      footer {
-        margin-top: 90px;
-        text-align: center;
-        font-size: 0.75em;
+        font-family: Consolas, Inconsolata, monospace;
       }
 
       a {
-        color: #ffff66;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
+        color: #FFEEBB;
       }
 
-      @media only screen and (max-device-width: 1280px) {
-        body {
-          font-size: 15px;
-        }
-        body > section {
-          width: 100% !important;
-          margin: 30px auto !important;
-        }
-        ul, ol {
-          padding-left: 15px;
-          margin-left: 15px;
-        }
-        pre.block {
-          font-size: 0.7em;
-        }
-        .screenshot > img {
-          width: 100%;
-          height: auto;
-        }
+      header {
+        font-size: 24px;
+      }
+
+      header img {
+        text-align: center;
+        margin-bottom: 45px;
       }
     </style>
   </head>
   <body>
     <header>
+      <img src="rx.png"/>
+      <p>
+        <em>rx</em> has moved to <a href="https://rx.cloudhead.io">https://rx.cloudhead.io</a>
+      </p>
     </header>
-    <section>
-      <img class="logo" src="/rx/rx.png"/>
-      <h1>rx</h1>
-      <p class="version">v0.2.0 <em>alpha</em></p>
-      <br/>
-      <p class="subtitle">a modern and extensible pixel editor implemented in rust</p>
-      <br/>
-      <center>
-        <small>
-          <a href="#download">Download for GNU/Linux</a><br/>
-          <a href="https://github.com/cloudhead/rx">GitHub</a>
-        </small>
-      </center>
-    </section>
-    <section class="screenshot">
-      <img src="rx.gif"/>
-    </section>
-    <section>
-      <p><strong>rx</strong> is an extensible, modern and minimalist <strong>pixel
-        editor</strong> and <strong>animator</strong> implemented in rust[0].
-      It's designed to have as little UI as possible, and instead takes
-      inspiration from vi's[1] modal nature and command mode.</p>
-
-      <p>Compared to other pixel editors, rx aims to be smaller yet more configurable
-      and extendable. <code>rx</code> takes a different approach when it comes to animation
-      as well, which is done with *strips*.</p>
-
-      <small>[0]: <a href="https://rust-lang.org">https://rust-lang.org</a></small><br/>
-      <small>[1]: <a href="https://en.wikipedia.org/wiki/Vi">https://en.wikipedia.org/wiki/Vi</a></small>
-    </section>
-
-    <section>
-      <h2>GOALS</h2>
-      <ul>
-        <li>Minimal UI. Clean aesthetics. No clutter.</li>
-        <li>Everything that should be controlled by the keyboard, is.</li>
-        <li>Extensible and scriptable with a simple command-based language.</li>
-        <li>Familiar to anyone with vi(m) knowledge.</li>
-        <li>Snappy. All commands run in &lt; 16ms.</li>
-        <li>Optimized for advanced users. vi-like philosophy.</li>
-        <li>Small, hackable codebase. At most 10 KLOC.</li>
-        <li>First-class Linux support.</li>
-        <li>CPU &amp; memory efficient.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>FEATURES</h2>
-      <ul>
-        <li>Built-in sprite animation support, with live preview.</li>
-        <li>Work with multiple files simultaneously.</li>
-        <li>Extensible command system.</li>
-        <li>Text-based configuration.</li>
-        <li>HiDPI display support.</li>
-        <li>Undo/redo support.</li>
-        <li>Color palette support.</li>
-        <li>PNG support.</li>
-        <li>Animated GIF support.</li>
-        <li>Multi-brush / synchronous editing.</li>
-        <li>Symmetry brush mode.</li>
-        <li>Brush filtering a.k.a "pixel-perfect" mode.</li>
-        <li><em class="grey">Coming soon: Layers.</em></li>
-        <li><em class="grey">Coming soon: Visual mode.</em></li>
-        <li><em class="grey">Coming soon: Workspaces.</em></li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>REQUIREMENTS</h2>
-      <h3>Linux</h3>
-      On Linux, <em>Vulkan</em> support is required. The drivers can be installed for example with
-      <code>apt install mesa-vulkan-drivers</code> on debian-based systems.
-      <h3>macOS</h3>
-      On macOS, <em>Metal</em> support is required. This usually requires installing <em>Xcode</em>
-      and the <em>Xcode Command Line Tools</em>.
-      <h3>Windows</h3>
-      On Windows, <em>Vulkan</em> support is required.
-    </section>
-
-    <a id="download"></a>
-    <section>
-      <h2>DOWNLOAD</h2>
-      <center><p><em><small>Disclaimer: this is alpha software, use at your own risk!</small></em></p></center>
-      <p>On Linux, the simplest way to get <code>rx</code> is to download the <em>AppImage</em>
-      from here:</p>
-      <center><a href="https://github.com/cloudhead/rx/releases/download/v0.2.0/rx-0.2.0-x86_64-unknown-linux-gnu.AppImage">rx-0.2.0-x86_64-unknown-linux-gnu.AppImage</a></center>
-      <p>Then make it executable with eg. <code>chmod +x</code>, rename it to
-      <code>rx</code> and move it somewhere in your <code>PATH</code>.</p>
-      <p>For macOS and Windows, see the following section.</p>
-    </section>
-
-    <section>
-      <h2>BUILD FROM SOURCE</h2>
-      <p>You'll need <strong>cargo</strong> and <strong>rust</strong> to build <code>rx</code> from source. For more
-      detailed instructions, see the <a href="https://github.com/cloudhead/rx/blob/master/README">README</a>.</p>
-
-      <div class="cli"><code class="block">$ cargo install --git https://github.com/cloudhead/rx --tag v0.2.0 --locked</code></div>
-
-      <p>The default installed palette is <a href="palettes/sweetie16.palette">sweetie16.palette</a>.
-      Other palettes are also available <a href="palettes/">here</a>, and you can create your own.</p>
-    </section>
-
-    <section>
-      <h2>USAGE</h2>
-
-      <p>After installing, simply run <code>rx</code> from a shell or application launcher.
-      You can then use the <code>:help</code> command to show the current set of key mappings
-      and commands.</p>
-
-      <p>Common commands:</p>
-
-      <pre class="block"><code>
-:help                    Display help
-:e &lt;path..&gt;              Edit path(s)
-:w                       Write/save view
-:q                       Quit view
-:slice &lt;n&gt;               Slice view into &lt;n&gt; frames
-:source &lt;path&gt;           Source an rx script (eg. a palette)
-:f/resize &lt;w&gt; &lt;h&gt;        Resize frames
-      </code></pre>
-    </section>
-
-    <section>
-      <h2>CONFIGURATION</h2>
-      <p>Configuring <code>rx</code> involves editing the <code>init.rx</code>
-      script, which is found in a platform-dependent location. On Linux, this
-      is in the XDG config directory, eg. <code>~/.config/rx/init.rx</code>, while on
-      macOS this is in the <code>~/Library/Preferences</code> folder.
-      written.</p>
-
-      <p>To get the exact location of the config directory, enter <code>:echo config/dir</code>
-      from inside <code>rx</code>.</p>
-    </section>
-
-    <section>
-      <h2>CONTRIBUTE</h2>
-      The source code is available at <a
-        href="https://github.com/cloudhead/rx">github.com/cloudhead/rx</a>.
-      <em>rx</em> is <em>free software</em>.
-    </section>
-
-    <section>
-      <h2>SUPPORT</h2>
-      <p>If you find this project useful and want to support its continued maintenance,
-      consider sending ₿ (Bitcoin) to the following address with a memo indicating your
-      name, to be added to the contributors list:</p>
-      <center><p><code class="block">1MpF7p9A8LJabZn7ehHpGbLcN5PCXRdGqm</code></p></center>
-    </section>
-
-    <section>
-      <h2>TROUBLESHOOTING</h2>
-
-      <p>If something ain't working like it's supposed to, there are various things you can
-      do to debug the problem:</p>
-
-      <ol>
-        <li>Run <em>rx</em> with verbose logging, by using the <code>-v</code> command-line flag.
-        This will log errors from the underlying libraries that are usually
-        suppressed.  You can increase the verbosity further by using <code>-vv</code>.</li>
-        <li>Try the <em>winit</em> backend, by building <em>rx</em> with eg. <code>--features winit</code>.</li>
-      </ol>
-
-      Otherwise, see the following BUGS section.
-    </section>
-
-    <section>
-      <h2>BUGS</h2>
-      <p>If you encounter a bug, please open an issue on the <a href="https://github.com/cloudhead/rx/issues">tracker</a>
-      or send an email to rx@cloudhead.io.</p>
-    </section>
-
-    <section>
-      <h2>LICENSE</h2>
-      <p>This software is licensed under the GPL.</p>
-    <footer>
-      &copy; 2019 Alexis Sellier
-    </footer>
   </body>
 </html>
