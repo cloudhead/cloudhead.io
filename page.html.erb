@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="/css/base.css">
+    <% if styles? %>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <% end %>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/">/</a> <span class="subtle">home</span></li>
+        <li><a href="http://twitter.com/cloudhead">@cloudhead</a> <span class="subtle">follow my tweets</span></li>
+        <li><a href="https://github.com/cloudhead">code</a> <span class="subtle">github.com/cloudhead</span></li>
+        <li><a href="https://github.com/cloudhead/dotfiles">dotfiles</a> <span class="subtle">~/.*</span></li>
+        <li><a href="https://github.com/cloudhead/shady.vim">shady</a> <span class="subtle">:colorscheme</span</li>
+        <li><a href="https://rx.cloudhead.io">rx</a> <span class="subtle">rx.cloudhead.io</span></li>
+        <% articles.each do |a| %>
+        <li><a href="/<%= a.name %>/"><%= a.name %></a> <span class="subtle"><%= a.date %></li>
+        <% end %>
+        <li><a href="https://twitter.com/cloudhead">tweets</a></li>
+        <li><a href="https://merveilles.town/@cloudhead">toots</a></li>
+        <li><a href="https://ello.co/cloudhead">drawings</a></li>
+      </ul>
+      <footer>
+        &copy; <%= year %> Alexis Sellier
+      </footer>
+    </nav>
+    <% if body %>
+    <article class="note">
+    <% if title %>
+      <header>
+        <h1><%= title %></h1>
+        <% if date %>
+        <p class="date"><%= date %></p>
+        <% end %>
+      </header>
+    <% end %>
+    <section class="body">
+      <%= body %>
+    </section>
+    <footer>
+    </footer>
+    </article>
+    <script type="text/javascript" src="/js/hirust.js"></script>
+    <% end %>
+  </body>
+</html>

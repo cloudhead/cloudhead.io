@@ -1,0 +1,97 @@
+#!/usr/bin/env ruby
+
+require "pathname"
+require "erb"
+require "commonmarker"
+require "date"
+
+PAGE_TEMPLATE = File.read("page.html.erb")
+INDEX_PATH    = "index.html"
+
+$articles = []
+
+class Page
+  def initialize(attrs)
+    @title = attrs[:title]
+    @name = attrs[:name]
+    @year = Date.today.year
+    @articles = $articles
+  end
+
+  def to_html
+    ERB.new(PAGE_TEMPLATE).result(binding).gsub(/ +$/, '')
+  end
+
+  def styles?
+    File.exists? Pathname::new(@name).join("style.css")
+  end
+
+  def write!
+    dir = Pathname::new(@name)
+
+    Dir::mkdir(@name) unless File.exists? dir
+    File::new(dir.join("index.html"), "w").write(self.to_html)
+  end
+
+  def method_missing(m, *args)
+    self.instance_variable_get("@#{m}")
+  end
+end
+
+class Article < Page
+  def initialize(input, output)
+    @output = output
+
+    abort "#{input} doesn't exist" unless File::exists? input
+    puts "* #{input}.."
+
+    name = File::basename(input, File::extname(input))
+
+    @name = name
+    @articles = $articles
+    @year = self.year
+
+    header, body = File.read(input).split(/\n\n/, 2)
+    result = header && header.strip.match(/^<!--(.*)-->$/m)
+    meta = result[1] || abort("article #{input} is not well formed")
+
+    @body = CommonMarker.render_doc(body, [:FOOTNOTES]).to_html
+
+    attrs = {}
+    meta.strip.each_line do |l|
+      matches = l.match(/^(\w+)\s*:\s*(.*)$/)
+      attrs[matches[1].downcase.to_sym] = matches[2].chomp
+    end
+
+    @date = attrs[:date]
+    @title = attrs[:title]
+  end
+end
+
+def build!(base, out)
+  base = Pathname::new(base)
+  out = Pathname::new(out)
+
+  Dir[base.join("**/**.md")].each do |path|
+    path = Pathname::new(path)
+
+    dir = path.dirname.relative_path_from(base)
+    file = path.basename
+
+    out_dir = out.join(dir)
+    out_dir.mkpath()
+    out_file = out_dir.join(file.sub_ext(".html"))
+
+    $articles << Article::new(path, out_file)
+  end
+
+  $articles.each(&:write!)
+
+  # Index page.
+  Page::new(title: "cloudhead's homepage", name: ".").write!
+end
+
+base = ARGV.shift
+out = ARGV.shift
+
+build!(base, out)
