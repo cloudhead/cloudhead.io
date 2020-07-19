@@ -3,6 +3,7 @@
 :root {
 	--highlight-color: aquamarine;
 	--subtle-color: #2c4146;
+	--scrollbar-width: 0.5rem;
 }
 
 * {
@@ -21,7 +22,7 @@ body {
 	font-size: 1.25rem;
 	scrollbar-width: thin;
 	scrollbar-height: thin;
-	scrollbar-color: var(--highlight-color) var(--subtle-color);
+	scrollbar-color: var(--highlight-color) transparent;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: greyscale;
 }
@@ -32,15 +33,22 @@ body, code, pre, p, kbd, h1, h2, h3, h4, h5 {
 
 /* Chrome/Edge/Safari scrollbar */
 *::-webkit-scrollbar {
-	width: 0.5rem;
-	height: 0.5rem;
+	width: var(--scrollbar-width);
+	height: var(--scrollbar-width);
 }
 *::-webkit-scrollbar-track {
 	background: transparent;
 }
 *::-webkit-scrollbar-thumb {
-	background-color: var(--highlight-color);
+	background: transparent;
 	border-radius: 4px;
+}
+*::-webkit-scrollbar-corner {
+	background: transparent;
+}
+*:hover::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+	background-color: var(--highlight-color);
 }
 
 ::selection {
@@ -79,6 +87,12 @@ video, img {
 	outline: none;
 }
 
+hr {
+	border: none;
+	border-top: 1px solid var(--subtle-color);
+	margin: 2rem 0;
+}
+
 /*
  * HEADERS
  */
@@ -112,12 +126,14 @@ h3 {
  */
 
 pre {
-	padding: 1.5rem 1.75rem;
+	padding: 1.5rem 1.75rem calc(1.5rem - var(--scrollbar-width)) 1.75rem;
 	background-color: #060f11;
 	border-radius: 4px;
+	overflow-x: scroll !important;
 }
 pre code {
 	white-space: pre-wrap;
+	white-space: pre;
 }
 
 code {
@@ -133,7 +149,17 @@ code.language-rust .comment {
 	color: #4b6267;
 	font-style: italic;
 }
+code.language-rust .op {
+	color: #8b9297;
+}
 code.language-rust .keyword {
+	color: white;
+	font-weight: bold;
+}
+code.language-rust .ref {
+	color: #9bb2b7;
+}
+code.language-rust .macro {
 	color: white;
 	font-weight: bold;
 }
@@ -141,8 +167,12 @@ code.language-rust .special {
 	color: white;
 	font-weight: bold;
 }
+code.language-rust .attr {
+	color: #4b6267;
+	font-weight: bold;
+}
 code.language-rust .string {
-	color: #bbb;
+	color: #aaa;
 }
 code.language-rust .number {
 	color: #fff897;
