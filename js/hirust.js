@@ -8,8 +8,8 @@
 // All elements which match this will be syntax highlighted.
 var selector = hirust || '.language-rust';
 
-var keywords = ('fn pub if else for while break match struct type let impl ref mut use mod self '
-               +'continue return true false panic! loop').split(' '),
+var keywords = ('fn pub if else for while break match struct enum type let impl use mod self '
+               +'continue return true false loop in unsafe where crate super').split(' '),
     special  = ('Ok Err Result').split(' ');
 
 // Syntax definition.
@@ -17,8 +17,12 @@ var keywords = ('fn pub if else for while break match struct type let impl ref m
 // The key becomes the class name of the <span> around the matched block of code.
 var syntax = [
   ['comment', /(\/\/[^\n]*)/g],
-  ['string' , /("(?:(?!")[^\\\n]|\\.)*"|'(?:(?!')[^\\\n]|\\.)*')/g],
+  ['string' , /("(?:(?!")[^\\\n]|\\.)*"|'[^\\\n']')/g],
+  ['attr'   , /(#\[[^\]]+\])/g],
   ['number' , /\b([0-9]+(?:\.[0-9]+)?)\b/g],
+  ['ref'    , /(&mut\b|\bmut\b|&)\b/g],
+  ['op'     , /(::|\.\.)/g],
+  ['macro'  , /\b(println!|eprintln!|panic!|assert!|assert_eq!)/g],
   ['keyword', new(RegExp)('\\b(' + keywords.join('|') + ')\\b', 'g')],
   ['special', new(RegExp)('\\b(' + special.join('|') + ')\\b', 'g')]
 ];
