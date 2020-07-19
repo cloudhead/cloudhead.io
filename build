@@ -49,7 +49,7 @@ class Article < Page
 
     @name = name
     @articles = $articles
-    @year = self.year
+    @year = Date.today.year
 
     header, body = File.read(input).split(/\n\n/, 2)
     result = header && header.strip.match(/^<!--(.*)-->$/m)
