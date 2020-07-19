@@ -350,6 +350,9 @@ only screen and (max-width: 960px) {
 	body > footer {
 		display: block;
 	}
+	.footnotes {
+		font-size: 0.75rem;
+	}
 }
 
 @media /* Mobile */
