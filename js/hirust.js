@@ -10,7 +10,8 @@ var selector = hirust || '.language-rust';
 
 var keywords = ('fn pub if else for while break match struct enum type let impl use mod self '
                +'continue return true false loop in unsafe where crate super').split(' '),
-    special  = ('Ok Err Result').split(' ');
+    special  = ('Ok Err Result').split(' '),
+    traits   = ('Eq PartialEq Ord PartialOrd Copy Clone Debug Default Sync Send Sized').split(' ');
 
 // Syntax definition.
 //
@@ -23,6 +24,7 @@ var syntax = [
   ['ref'    , /(&mut\b|\bmut\b|&)\b/g],
   ['op'     , /(::|\.\.)/g],
   ['macro'  , /\b(println!|eprintln!|panic!|assert!|assert_eq!)/g],
+  ['trait'  , new(RegExp)('\\b(' + traits.join('|') + ')\\b', 'g')],
   ['keyword', new(RegExp)('\\b(' + keywords.join('|') + ')\\b', 'g')],
   ['special', new(RegExp)('\\b(' + special.join('|') + ')\\b', 'g')]
 ];
