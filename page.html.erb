@@ -3,11 +3,10 @@
   <head>
     <title><%= title %></title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/css/fonts.css">
     <link rel="stylesheet" type="text/css" href="/css/base.css">
-    <% if styles? %>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <% end %>
+    <% if styles? %><link rel="stylesheet" type="text/css" href="style.css"><% end %>
   </head>
   <body>
     <nav>
@@ -18,12 +17,10 @@
         <li><a href="https://github.com/cloudhead/dotfiles">dotfiles</a> <span class="subtle">~/.*</span></li>
         <li><a href="https://github.com/cloudhead/shady.vim">shady</a> <span class="subtle">:colorscheme</span</li>
         <li><a href="https://rx.cloudhead.io">rx</a> <span class="subtle">rx.cloudhead.io</span></li>
-        <% articles.each do |a| %>
-        <li>
+        <% articles.each do |a| -%><li>
           <a href="/<%= a.name %>/"><%= a.name %></a>
           <span class="subtle"><%= a.teaser || a.date %></span>
-        </li>
-        <% end %>
+        </li><% end %>
         <li><a href="https://twitter.com/cloudhead">tweets</a></li>
         <li><a href="https://merveilles.town/@cloudhead">toots</a></li>
         <li><a href="https://ello.co/cloudhead">drawings</a></li>
@@ -37,17 +34,20 @@
     <% if title %>
       <header>
         <h1><%= title %></h1>
-        <% if date %>
+        <% if date -%>
         <p class="date"><%= date %></p>
         <% end %>
       </header>
     <% end %>
     <section class="body">
-      <%= body %>
+      <%= body -%>
     </section>
     <footer>
     </footer>
     </article>
+    <footer>
+      &copy; <%= year %> Alexis Sellier
+    </footer>
     <script type="text/javascript" src="/js/hirust.js"></script>
     <% end %>
   </body>

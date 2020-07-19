@@ -1,5 +1,6 @@
 body {
 	background: url(/images/bg.png) no-repeat fixed bottom center;
+	background-size: contain;
 }
 
 h1 {

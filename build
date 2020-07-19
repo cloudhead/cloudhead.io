@@ -19,7 +19,7 @@ class Page
   end
 
   def to_html
-    ERB.new(PAGE_TEMPLATE).result(binding).gsub(/ +$/, '')
+    ERB.new(PAGE_TEMPLATE, trim_mode: "<>-").result(binding).gsub(/ +$/, '')
   end
 
   def styles?

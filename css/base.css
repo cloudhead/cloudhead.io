@@ -12,6 +12,10 @@
 	box-sizing: border-box;
 }
 
+html {
+	font-size: 100%;
+}
+
 body {
 	color: #eee;
 	background-color: #05050c;
@@ -19,7 +23,7 @@ body {
 	margin: 0 auto;
 	padding: 120px 0 180px 0;
 	line-height: 1.4em;
-	font-size: 1.25rem;
+	font-size: 125%;
 	scrollbar-width: thin;
 	scrollbar-height: thin;
 	scrollbar-color: var(--highlight-color) transparent;
@@ -95,6 +99,16 @@ section.body {
 	margin-bottom: 36rem;
 }
 
+footer {
+	font-size: 1rem;
+	color: var(--subtle-color);
+}
+
+body > footer {
+	display: none;
+	padding: 1rem 1rem 0 1rem;
+}
+
 /*
  * HEADERS
  */
@@ -109,18 +123,18 @@ h3, h4, h5 {
 }
 
 h1 {
-	font-size: 1.2em;
+	font-size: 1.2rem;
 	line-height: 1.4em;
 	font-weight: bold;
 }
 h2 {
-	font-size: 1.3em;
+	font-size: 1.3rem;
 	line-height: 1.4em;
 	margin-bottom: 30px;
 	margin-top: 90px;
 }
 h3 {
-	font-size: 1.1em;
+	font-size: 1.1rem;
 }
 
 /*
@@ -134,7 +148,6 @@ pre {
 	overflow-x: scroll !important;
 }
 pre code {
-	white-space: pre-wrap;
 	white-space: pre;
 }
 
@@ -246,15 +259,12 @@ nav {
 	z-index: -1;
 }
 nav li {
-	font-size: 20px;
 	line-height: 1.25em;
 }
 nav a {
 	color: var(--highlight-color);
 }
 nav footer {
-	font-size: 1rem;
-	color: var(--subtle-color);
 	position: fixed;
 	bottom: 1rem;
 	left: 1rem;
@@ -307,12 +317,17 @@ only screen and (max-width: 1280px) {
 only screen and (max-device-width: 960px),
 only screen and (max-width: 960px) {
 	body {
-		padding: 1rem;
+		font-size: 100%;
+		max-width: 100%;
+		padding: 1rem 0rem;
 	}
 	nav {
 		display: block;
 		position: static;
 		margin-bottom: 1rem;
+	}
+	nav footer {
+		display: none;
 	}
 	nav ul {
 		column-count: 2;
@@ -323,11 +338,26 @@ only screen and (max-width: 960px) {
 		-moz-column-count: 2;
 		-moz-column-gap: 4rem;
 	}
+	img[alt="crates.io"], img[alt="docs.rs"] {
+		height: 1.25rem;
+	}
+	h1, h2, h3, h4, h5, h6, p, nav {
+		padding: 0 1rem;
+	}
+	pre {
+		padding: 1rem 1rem calc(1rem - var(--scrollbar-width)) 1rem;
+	}
+	body > footer {
+		display: block;
+	}
 }
 
 @media /* Mobile */
 only screen and (max-device-width: 720px),
 only screen and (max-width: 720px) {
+	body {
+		font-size: 87.5%;
+	}
 	video {
 		height: auto;
 		width: 100%;
