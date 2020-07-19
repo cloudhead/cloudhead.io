@@ -19,7 +19,10 @@
         <li><a href="https://github.com/cloudhead/shady.vim">shady</a> <span class="subtle">:colorscheme</span</li>
         <li><a href="https://rx.cloudhead.io">rx</a> <span class="subtle">rx.cloudhead.io</span></li>
         <% articles.each do |a| %>
-        <li><a href="/<%= a.name %>/"><%= a.name %></a> <span class="subtle"><%= a.date %></li>
+        <li>
+          <a href="/<%= a.name %>/"><%= a.name %></a>
+          <span class="subtle"><%= a.teaser || a.date %></span>
+        </li>
         <% end %>
         <li><a href="https://twitter.com/cloudhead">tweets</a></li>
         <li><a href="https://merveilles.town/@cloudhead">toots</a></li>

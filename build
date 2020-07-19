@@ -65,6 +65,7 @@ class Article < Page
 
     @date = attrs[:date]
     @title = attrs[:title]
+    @teaser = attrs[:teaser]
   end
 end
 

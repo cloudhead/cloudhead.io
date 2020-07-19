@@ -91,6 +91,10 @@ hr {
 	margin: 2rem 0;
 }
 
+section.body {
+	margin-bottom: 36rem;
+}
+
 /*
  * HEADERS
  */
@@ -181,7 +185,6 @@ code.language-rust .number {
 }
 
 sup.footnote-ref {
-	text-decoration: underline;
 	vertical-align: baseline;
 	position: relative;
 	top: -0.4em;
