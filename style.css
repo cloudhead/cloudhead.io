@@ -1,6 +1,11 @@
+html {
+	height: 100%;
+}
+
 body {
 	background: url(/images/bg.png) no-repeat fixed bottom center;
 	background-size: contain;
+	height: 100%;
 }
 
 h1 {
