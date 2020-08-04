@@ -392,8 +392,7 @@ only screen and (max-width: 960px) {
 }
 
 @media /* Mobile */
-only screen and (max-device-width: 720px),
-only screen and (max-width: 720px) {
+only screen and (max-device-width: 720px) {
 	body {
 		font-size: 87.5%;
 	}
