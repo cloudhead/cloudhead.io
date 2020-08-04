@@ -293,6 +293,13 @@ nav footer {
 	margin-left: 0.2rem;
 }
 
+img.qr {
+	border: 12px solid white;
+	margin: 0 auto;
+	display: block;
+	margin-bottom: 4rem;
+}
+
 /*
  * MEDIA
  */

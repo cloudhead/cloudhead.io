@@ -55,7 +55,7 @@ class Article < Page
     result = header && header.strip.match(/^<!--(.*)-->$/m)
     meta = result[1] || abort("article #{input} is not well formed")
 
-    @body = CommonMarker.render_doc(body, [:FOOTNOTES, :SMART]).to_html
+    @body = CommonMarker.render_doc(body, [:FOOTNOTES, :SMART, :UNSAFE]).to_html(:UNSAFE)
 
     attrs = {}
     meta.strip.each_line do |l|
