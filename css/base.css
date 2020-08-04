@@ -294,10 +294,11 @@ nav footer {
 }
 
 img.qr {
-	border: 12px solid white;
+	border: 1vw solid white;
 	margin: 0 auto;
 	display: block;
 	margin-bottom: 4rem;
+	max-width: 50%;
 }
 
 /*
@@ -324,14 +325,13 @@ only screen and (max-width: 1280px) {
 only screen and (max-device-width: 960px),
 only screen and (max-width: 960px) {
 	body {
-		font-size: 100%;
 		max-width: 100%;
 		padding: 1rem 0rem;
 	}
 	nav {
 		display: block;
 		position: static;
-		margin-bottom: 1rem;
+		margin-bottom: 1.5rem;
 	}
 	nav footer {
 		display: none;
