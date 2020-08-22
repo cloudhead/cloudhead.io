@@ -32,7 +32,7 @@ body {
 }
 
 body, code, pre, p, kbd, h1, h2, h3, h4, h5, input {
-	font-family: "Consolas", "Inconsolata", monospace;
+	font-family: "Consolas", "Inconsolata", monospace, "Emoji";
 }
 
 /* Chrome/Edge/Safari scrollbar */
@@ -130,11 +130,13 @@ h1 {
 h2 {
 	font-size: 1.3rem;
 	line-height: 1.4em;
-	margin-bottom: 30px;
-	margin-top: 90px;
+	margin-top: 1rem;
+	margin-bottom: 1.25rem;
 }
 h3 {
-	font-size: 1.1rem;
+	font-size: 1.25rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 /*
