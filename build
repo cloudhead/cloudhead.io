@@ -66,6 +66,11 @@ class Article < Page
     @date = attrs[:date]
     @title = attrs[:title]
     @teaser = attrs[:teaser]
+    @headline = attrs[:headline]
+  end
+
+  def method_missing(m, *args)
+    self.instance_variable_get("@#{m}")
   end
 end
 
