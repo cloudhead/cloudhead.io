@@ -1,5 +1,5 @@
 PAGES  := popol/ donate/ nakamoto/
-STATIC := css/ images/ fonts/ js/
+STATIC := css/ images/ fonts/ js/ favicon.png
 
 default:
 	./build ~/txt/pub .
