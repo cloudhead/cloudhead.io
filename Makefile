@@ -1,4 +1,4 @@
-PAGES  := popol/ donate/
+PAGES  := popol/ donate/ nakamoto/
 STATIC := css/ images/ fonts/ js/
 
 default:

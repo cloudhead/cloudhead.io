@@ -130,12 +130,12 @@ h1 {
 h2 {
 	font-size: 1.3rem;
 	line-height: 1.4em;
-	margin-top: 1rem;
+	margin-top: 1.5rem;
 	margin-bottom: 1.25rem;
 }
 h3 {
 	font-size: 1.25rem;
-	margin-top: 1rem;
+	margin-top: 2.5rem;
 	margin-bottom: 1rem;
 }
 
@@ -205,8 +205,20 @@ sup.footnote-ref {
 	top: -0.4em;
 }
 
-img[alt="crates.io"], img[alt="docs.rs"] {
+a.footnote-backref {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+img[alt="crates.io"], img[alt="docs.rs"], img[alt="github.com"] {
 	height: 1.5rem;
+}
+
+p + p img {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+p img[alt="diagram"] {
+	width: 100%;
 }
 
 /*
@@ -375,7 +387,7 @@ only screen and (max-width: 960px) {
 		-moz-column-count: 2;
 		-moz-column-gap: 4rem;
 	}
-	img[alt="crates.io"], img[alt="docs.rs"] {
+	img[alt="crates.io"], img[alt="docs.rs"], img[alt="github.com"] {
 		height: 1.25rem;
 	}
 	h1, h2, h3, h4, h5, h6, p, nav {

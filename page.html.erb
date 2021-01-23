@@ -4,6 +4,10 @@
     <title><%= title %></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:site" content="@cloudhead" />
+    <meta name="twitter:creator" content="@cloudhead" />
+    <meta property="og:title" content="<%= title %>" />
+    <link rel="shortcut icon" href="favicon.png" />
     <link rel="stylesheet" type="text/css" href="/css/fonts.css">
     <link rel="stylesheet" type="text/css" href="/css/base.css">
     <% if styles? %><link rel="stylesheet" type="text/css" href="style.css"><% end %>
@@ -15,8 +19,8 @@
         <li><a href="http://twitter.com/cloudhead">@cloudhead</a> <span class="subtle">follow my tweets</span></li>
         <li><a href="https://github.com/cloudhead">code</a> <span class="subtle">github.com/cloudhead</span></li>
         <li><a href="https://github.com/cloudhead/dotfiles">dotfiles</a> <span class="subtle">~</span></li>
+        <li><a href="https://rx.cloudhead.io">rx</a> <span class="subtle">rx.cloudhead.io 👾</span></li>
         <li><a href="https://github.com/cloudhead/shady.vim">shady</a> <span class="subtle">:colorscheme</span</li>
-        <li><a href="https://rx.cloudhead.io">rx</a> <span class="subtle">rx.cloudhead.io</span></li>
         <% articles.each do |a| -%><li>
           <a href="/<%= a.name %>/"><%= a.name %></a>
           <span class="subtle"><%= a.teaser || a.date %></span>
