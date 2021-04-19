@@ -7,4 +7,7 @@ default:
 publish:
 	./publish $(STATIC) $(PAGES) public/ index.html style.css
 
+deps:
+	gem install commonmarker aws-sdk-s3 rack
+
 .PHONY: publish
