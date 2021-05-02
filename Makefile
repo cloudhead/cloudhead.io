@@ -1,5 +1,5 @@
 PAGES  := popol/ donate/ nakamoto/ whoami/
-STATIC := css/ images/ fonts/ js/ favicon.png
+STATIC := css/ images/ fonts/ js/ favicon.png avatar.png
 
 default:
 	./build ~/txt/pub .
