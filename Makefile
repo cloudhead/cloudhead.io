@@ -1,5 +1,5 @@
 PAGES  := popol/ donate/ nakamoto/ whoami/
-STATIC := css/ images/ fonts/ js/ favicon.png avatar.png
+STATIC := css/ images/ fonts/ js/ favicon.png avatar.png cloudhead.gpg
 
 default:
 	./build ~/txt/pub .
