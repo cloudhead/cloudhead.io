@@ -109,6 +109,12 @@ body > footer {
 	padding: 1rem 1rem 0 1rem;
 }
 
+blockquote {
+  margin-left: 1rem;
+  color: grey;
+  font-style: italic;
+}
+
 /*
  * HEADERS
  */
@@ -144,7 +150,7 @@ h3 {
  */
 
 pre {
-	padding: 1.5rem 1.75rem calc(1.5rem - var(--scrollbar-width)) 1.75rem;
+	padding: 1rem;
 	background-color: #060f11;
 	border-radius: 4px;
 	overflow-x: scroll !important;
@@ -156,7 +162,7 @@ pre code {
 code {
 	color: #a1fde6;
 	white-space: nowrap;
-	font-style: italic;
+	font-style: normal;
 }
 code.language-rust {
 	color: #ddd;
@@ -170,7 +176,7 @@ code.language-rust .op {
 	color: #8b9297;
 }
 code.language-rust .keyword {
-	color: white;
+	color: #eee;
 	font-weight: bold;
 }
 code.language-rust .trait {
@@ -181,11 +187,11 @@ code.language-rust .ref {
 	color: #9bb2b7;
 }
 code.language-rust .macro {
-	color: white;
+	color: #eee;
 	font-weight: bold;
 }
 code.language-rust .special {
-	color: white;
+	color: #eee;
 	font-weight: bold;
 }
 code.language-rust .attr {
@@ -394,7 +400,7 @@ only screen and (max-width: 960px) {
 		padding: 0 1rem;
 	}
 	pre {
-		padding: 1rem 1rem calc(1rem - var(--scrollbar-width)) 1rem;
+		padding: 1rem;
 	}
 	body > footer {
 		display: block;
