@@ -56,7 +56,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 ::selection {
-	background: #9fe7e1;
+	color: black;
+	background: #ffeebb;
 }
 
 :focus {
