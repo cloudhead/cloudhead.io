@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>
+      {% if page.title %}
+        {{ page.title }} ~ {{ site.title }}
+      {% else %}
+        {{ site.title }}
+      {% endif %}
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:site" content="@cloudhead" />
+    <meta name="twitter:creator" content="@cloudhead" />
+    <meta property="og:title" content="<%= title %>" />
+    <link rel="shortcut icon" href="/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="/css/base.css">
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/">/</a> <span class="subtle">home</span></li>
+        <li><a href="http://twitter.com/cloudhead">@cloudhead</a> <span class="subtle">tweets</span></li>
+        <li><a href="https://github.com/cloudhead">code</a> <span class="subtle">github.com/cloudhead</span></li>
+        <li><a href="https://github.com/cloudhead/dotfiles">dotfiles</a> <span class="subtle">~</span></li>
+        <li><a href="https://rx.cloudhead.io">rx</a> <span class="subtle">rx.cloudhead.io 👾</span></li>
+        <li><a href="https://github.com/cloudhead/shady.vim">shady</a> <span class="subtle">:colorscheme</span</li>
+        {% for page in site.pages %}
+          {% if page.title %}
+            <li>
+              <a href="{{ page.url | relative_url }}">{{ page.slug }}</a>
+              <span class="subtle">{{ page.teaser }}</span>
+            </li>
+          {% endif %}
+        {% endfor %}
+        <li><a href="https://merveilles.town/@cloudhead">toots</a> <span class="subtle">fediverse</span></li>
+        <li><a href="https://art.cloudhead.io">art</a> <span class="subtle">🖌️</span></li>
+        <li><a href="https://radicle.xyz">radicle</a> <span class="subtle">p2p code-collab</span></li>
+      </ul>
+      <footer>
+        &copy; {{ 'now' | date: "%Y" }} Alexis Sellier
+      </footer>
+    </nav>
+
+    <article class="note">
+      <header>
+        <div class="meta">
+          {% if page.type == "note" or page.type == "post" %}
+            <div class="date">{{ page.date | date: "%Y.%m.%d" }}</div>
+          {% else %}
+            <div class="date">{{ page.super }}</div>
+          {% endif %}
+          {% if page.crate %}
+            <div class="badges">
+              <a href="https://crates.io/crates/{{ page.crate }}">
+                <img alt="crates.io" src="https://img.shields.io/crates/v/{{ page.crate }}.svg?label={{ page.crate }}"/>
+              </a>
+              <a href="https://docs.rs/{{ page.crate }}">
+                <img alt="docs.rs" src="https://docs.rs/{{ page.crate }}/badge.svg"/>
+              </a>
+              <a href="https://github.com/cloudhead/{{ page.crate }}">
+                <img alt="github.com" src="https://img.shields.io/github/stars/cloudhead/{{ page.crate }}?style=social"/>
+              </a>
+            </div>
+          {% endif %}
+        </div>
+        {% if page.type == "post" %}
+          <h1><a href="{{ page.permalink }}">{{ page.title }}</a></h1>
+        {% else if page.headline %}
+          <h1><a href="{{ page.permalink }}">{{ page.headline }}</a></h1>
+        {% endif %}
+      </header>
+      <section class="body">
+        {{ content }}
+      </section>
+    </article>
+
+    <footer>
+      &copy; {{ 'now' | date: "%Y" }} Alexis Sellier
+    </footer>
+    <script type="text/javascript" src="{{ "/js/hirust.js" | relative_url }}"></script>
+  </body>
+</html>
+

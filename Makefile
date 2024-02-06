@@ -1,13 +1,13 @@
-PAGES  := popol/ donate/ nakamoto/ whoami/
-STATIC := css/ images/ fonts/ js/ favicon.png avatar.png cloudhead.gpg
+default: _site
+	jekyll build
 
-default:
-	./build ~/txt/pub .
+serve:
+	jekyll serve --port 3000
 
-publish:
-	./publish $(STATIC) $(PAGES) public/ index.html style.css
+dependencies:
+	gem install jekyll bundler aws-sdk-s3
 
-deps:
-	gem install commonmarker aws-sdk-s3 rack
+publish: default
+	./publish _site
 
 .PHONY: publish

@@ -1,0 +1,9 @@
+url: "https://cloudhead.io"
+baseurl: "/"
+title: "cloudhead.io"
+highlighter: none
+markdown: kramdown
+collections:
+  pages:
+    output: true
+    permalink: /:path/
