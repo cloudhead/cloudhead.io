@@ -3,6 +3,7 @@
 require 'aws-sdk-s3'
 require 'digest/md5'
 require 'rack/mime'
+require 'pathname'
 
 CLIENT = Aws::S3::Client.new(region: ENV['AWS_REGION'] || 'eu-west-1')
 BUCKET = File.basename(Dir.pwd)
@@ -19,6 +20,7 @@ the following environment vars will be used:
 EOF
 
 def upload(files=["."])
+  base = Pathname::new(files.first)
   files = files.map do |f|
     File.directory?(f) ? traverse(Dir.new(f)) : f
   end.flatten
@@ -26,17 +28,18 @@ def upload(files=["."])
   files.each do |f|
     print "#{f}.. "
 
+    key = Pathname::new(f).relative_path_from(base).to_s
     mime = Rack::Mime::MIME_TYPES[File.extname(f)]
     cache = if /^text/.match?(mime) then 60 else 3600 end
 
-    obj = CLIENT.get_object({bucket: BUCKET, key: f}) rescue nil
+    obj = CLIENT.get_object({bucket: BUCKET, key: key}) rescue nil
     local_md5 = md5sum(f).chomp
     remote_md5 = obj.etag.tr('"', '') if obj
 
     if local_md5.to_s != remote_md5.to_s
       CLIENT.put_object(
         body: File::new(f),
-        key: f,
+        key: key,
         bucket: BUCKET,
         content_type: mime,
         cache_control: "max-age=#{cache}",
