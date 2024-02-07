@@ -43,3 +43,11 @@ nav a {
 nav footer, .subtle, .date {
 	color: #bbb;
 }
+
+@media /* Smaller desktop */
+only screen and (max-device-width: 960px),
+only screen and (max-width: 960px) {
+  nav ul {
+    column-count: 1 !important;
+  }
+}
