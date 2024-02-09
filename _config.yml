@@ -7,3 +7,9 @@ collections:
   pages:
     output: true
     permalink: /:path/
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      permalink: /log/:year/:month/:day/:title/

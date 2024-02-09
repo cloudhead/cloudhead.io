@@ -3,6 +3,7 @@ title: Fund my work
 teaser: fund my work 💸
 slug: fund
 layout: default
+permalink: /donate/
 ---
 
 <div class="qr">

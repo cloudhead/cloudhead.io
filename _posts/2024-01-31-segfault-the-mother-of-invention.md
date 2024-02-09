@@ -3,6 +3,8 @@ title: "Segfault, the mother of invention"
 date: 2024-01-31
 type: post
 layout: default
+permalink: /drafts/segfault/
+draft: true
 ---
 
 There is no greater joy for a programmer than to build his own tools. A few
