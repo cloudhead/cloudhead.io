@@ -1,11 +1,11 @@
 default: _site
-	jekyll build
+	bundle exec jekyll build
 
 serve:
-	jekyll serve --port 3000
+	bundle exec jekyll serve --port 3000
 
 dependencies:
-	gem install jekyll bundler aws-sdk-s3
+	gem install jekyll bundler aws-sdk-s3 rack
 
 publish: default
 	./publish _site
