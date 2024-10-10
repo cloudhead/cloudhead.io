@@ -21,7 +21,7 @@ html {
 body {
   color: var(--foreground-color);
   background-color: #05050c;
-  max-width: 912px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 4rem 0 4rem 0;
   line-height: 1.4em;
